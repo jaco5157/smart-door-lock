@@ -1,0 +1,24 @@
+@startuml
+title Door Lock State Machine
+
+
+[*] --> Locked
+
+legend left
+    |State|Type|
+    |Unlocked |Critical|
+    |Request |Non-critical |
+    |Wait |Non-critical |
+    |Locked|Non-critical |
+endlegend
+
+Locked --> Request: User request unlock
+Locked : Door is locked
+Request --> Wait: Send acknowledgement
+Request : Received request
+Wait --> Unlocked: Good request
+Wait : Wait for unlock command
+Wait --> Locked: Timeout
+Unlocked -right-> Locked: User requests lock
+Unlocked : Door is unlocked
+@enduml

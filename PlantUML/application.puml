@@ -1,0 +1,24 @@
+@startuml
+title Door Lock State Machine
+
+
+[*] --> Idle
+
+legend left
+    |State|Type|
+    |Idle |Non-critical|
+    |Waiting |Non-critical |
+    |Waiting |Non-critical |
+    |Unlocked |Non-critical |
+endlegend
+
+Idle --> Idle
+Idle --> Waiting: Waiting for acknowledgement
+Waiting --> Unlocked: Unlock request
+Waiting --> Idle: Timeout \n Time > 10s
+Idle --> Lock_offline: Timeout \n Time > 3s
+Lock_offline --> Idle: Heartbeat detected
+Lock_offline : 
+Unlocked --> Idle: Lock is unlocked
+Unlocked --> Lock_offline: Timeout \n Time > 3s
+@enduml
