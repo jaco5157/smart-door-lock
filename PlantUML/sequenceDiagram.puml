@@ -1,0 +1,12 @@
+@startuml
+
+skin rose
+
+title "App/Lock Communication - Sequence Diagram"
+
+App -> Lock : Unlock Req.
+Lock -> App : Acknowledge
+App -> Lock : Unlock Comm.
+Lock -> App : 200 OK
+
+@enduml
