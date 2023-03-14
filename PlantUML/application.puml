@@ -1,7 +1,6 @@
 @startuml
 title Door Lock State Machine
 
-
 [*] --> Idle
 
 legend left
