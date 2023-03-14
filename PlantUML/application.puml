@@ -4,6 +4,7 @@ title Door Lock State Machine
 
 [*] --> Idle
 
+
 legend left
     |State|Type|
     |Idle |Non-critical|
